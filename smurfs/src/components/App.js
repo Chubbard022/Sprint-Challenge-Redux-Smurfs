@@ -14,14 +14,18 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-      <SmurfFriendForm smurfs={this.props.smurfs} />
-      <SmurfFriendList smurfs={this.props.smurfs}/>
+        <SmurfFriendForm />
+        <SmurfFriendList 
+          smurfs={this.props.smurfs} 
+          addingSmurfs={this.props.addingSmurfs}
+        />
       </div>
     );
   }
 }
 const mapStateToProps = state =>({
   smurfs: state.smurfs,
-  fetchingSmurfs: state.fetchingSmurfs
+  fetchingSmurfs: state.fetchingSmurfs,
+  addingSmurfs: state.addingSmurfs
 })
 export default connect(mapStateToProps,{getSmurfs})(App)

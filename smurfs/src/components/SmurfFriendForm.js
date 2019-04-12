@@ -1,21 +1,21 @@
 import React from 'react'
-
+import { addSmurf } from '../actions';
+import { connect } from 'react-redux';
 class SmurfFriendForm extends React.Component{
-    state = {
+    constructor(){
+        super();
+    this.state = {
         name:'',
         age:'',
         height:''
     }
+}
     handleChange = event =>{
         this.setState({[event.target.name]: event.target.value})
     }
     handleSubmit = event =>{
         event.preventDefault();
-        this.props.addSmurf({
-            name:this.state.name,
-            age:this.state.age,
-            height:this.state.height
-        })
+        this.props.addSmurf({name:this.state.name,age:this.state.age,height:this.state.height})
         this.setState({name:'',age:'',height:''})
         
     }
@@ -49,4 +49,4 @@ class SmurfFriendForm extends React.Component{
     }
 }
 
-export default SmurfFriendForm;
+export default connect(null,{ addSmurf })(SmurfFriendForm);

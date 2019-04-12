@@ -3,7 +3,6 @@ import React from 'react'
 
 class SmurfFriendList extends React.Component{
     render(){
-        console.log(this.props.smurfs[0])
         return(
             <div>
                {this.props.smurfs.map((smurf,index)=>{
