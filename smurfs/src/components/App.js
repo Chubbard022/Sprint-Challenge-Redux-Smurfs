@@ -14,8 +14,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-      <SmurfFriendForm />
-      <SmurfFriendList />
+      <SmurfFriendForm smurfs={this.props.smurfs} />
+      <SmurfFriendList smurfs={this.props.smurfs}/>
       </div>
     );
   }
