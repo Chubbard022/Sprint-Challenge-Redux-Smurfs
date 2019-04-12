@@ -26,3 +26,19 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+.smurf__form{
+margin: 10px;
+padding: 10px;
+border: 1px solid black;
+background-color: rgb(118, 240, 230);
+border-radius: 10px;
+
+}
+.smurf__card{
+  margin: 10px;
+padding: 10px;
+border: 1px solid black;
+background-color: rgb(140, 255, 245);
+border-radius: 10px;
+color: rgb(0, 153, 255);
+}
