@@ -21,7 +21,7 @@ class SmurfFriendForm extends React.Component{
     }
     render(){
         return(
-            <form onSubmit={this.handleSubmit}>
+            <form className="smurf__form"onSubmit={this.handleSubmit}>
                 <input 
                     type="text"
                     name="name"

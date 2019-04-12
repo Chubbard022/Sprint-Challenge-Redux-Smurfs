@@ -6,7 +6,8 @@ class SmurfFriendList extends React.Component{
         return(
             <div>
                {this.props.smurfs.map((smurf,index)=>{
-               return( <div key={index}>
+               return( 
+               <div className="smurf__card"key={index}>
                  <p>{smurf.name}</p>
                  <p>{smurf.age}</p>
                  <p>{smurf.height}</p>
