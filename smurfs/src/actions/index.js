@@ -8,28 +8,29 @@ export const ADD_SMURF_START = "ADD_SMURF_START";
 export const ADD_SMURF_SUCCESS = "ADD_SMURF_SUCCESS";
 export const ADD_SMURF_FAILURE = "ADD_SMURF_FAILURE";
 
-const URL = "localhost:3333/smurfs"
+const URL = "http://localhost:3333/smurfs/"
 
 
-export const getSmurfs = () => dispatch =>{
-  dispatch({type:GET_SMURF_START})
-  return axios
-  .get(URL)
-  .then(res=>{
-    dispatch({type:GET_SMURF_SUCCESS, payload: res.data})
-  })
-  .catch(err=>console.log(err))
-}
+export const getSmurfs = () => dispatch => {
+  dispatch({ type: GET_SMURF_START });
+  axios
+    .get(URL)
+    .then(response => {
+      dispatch({ type: GET_SMURF_SUCCESS, payload: response.data });
+    })
+    .catch(err => dispatch({ type: GET_SMURF_FAILURE, payload: err }));
+};
 
-export const addSmurf = smurf => dispatch =>{
-  dispatch({type:ADD_SMURF_START})
-  return axios
-  .post(URL)
-  .then(res=>{
-    dispatch({type:ADD_SMURF_SUCCESS, payload: res.data})
-  })
-  .then(err=>console.log(err))
-}
+export const addSmurf = smurf => dispatch => {
+  dispatch({ type: ADD_SMURF_START });
+  axios
+    .post(URL, smurf)
+    .then(response => {
+      console.log('fetch finished');
+      dispatch({ type: ADD_SMURF_SUCCESS, payload: response.data });
+    })
+    .catch(err => dispatch({ type: ADD_SMURF_FAILURE, payload: err }));
+};
 /*
   For this project you'll need at least 2 action creators for the main portion,
    and 2 more for the stretch problem.

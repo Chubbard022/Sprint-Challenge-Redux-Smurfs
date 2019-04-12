@@ -11,7 +11,11 @@ class SmurfFriendForm extends React.Component{
     }
     handleSubmit = event =>{
         event.preventDefault();
-        // this.props.addsmurf({name:this.state.name,age:this.state.age,height:this.state.height})
+        this.props.addSmurf({
+            name:this.state.name,
+            age:this.state.age,
+            height:this.state.height
+        })
         this.setState({name:'',age:'',height:''})
         
     }
@@ -39,12 +43,10 @@ class SmurfFriendForm extends React.Component{
                     value={this.state.height}
                     onChange={this.handleChange}
                 />
-                <button>Sumbit</button>
+                <button>Submit</button>
             </form>
         )
     }
 }
-
-
 
 export default SmurfFriendForm;
